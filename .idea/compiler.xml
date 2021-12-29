@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.8">
+      <module name="TestingCompose.app" target="11" />
+      <module name="TestingCompose.app.base" target="11" />
+      <module name="TestingCompose.app.base.data" target="11" />
+      <module name="TestingCompose.app.features.anime" target="11" />
+      <module name="TestingCompose.app.features.anime.data" target="11" />
+      <module name="TestingCompose.buildSrc" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

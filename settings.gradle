@@ -1,0 +1,20 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "TestingCompose"
+include ':app'
+include ':app:base'
+include ':app:base:arch'
+include ':app:base:data'
+include ':app:base:data'
+include ':app:base:domain'
+include ':app:base:data:api'
+include ':app:features'
+include ':app:features:anime'
+include ':app:features:anime:data'
+include ':app:features:anime:domain'

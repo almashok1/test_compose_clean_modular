@@ -1,0 +1,69 @@
+import com.example.buildSrc.*
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion Versions.COMPILE_SDK
+    defaultConfig {
+        minSdkVersion Versions.MIN_SDK
+        targetSdkVersion Versions.TARGET_SDK
+    }
+    compileOptions {
+        sourceCompatibility JAVA_VERSION
+        targetCompatibility JAVA_VERSION
+    }
+    kotlinOptions {
+        jvmTarget = JAVA_VERSION.toString()
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Versions.COMPOSE_VERSION
+        kotlinCompilerVersion '1.5.21'
+    }
+}
+
+dependencies {
+    api project(Modules.Base.ARCH)
+    api project(Modules.Base.DATA)
+
+    // Kotlin
+    api Libs.Kotlin.Coroutines.ANDROID
+
+    // Android
+    api Libs.AndroidX.CORE_KTX
+    api Libs.AndroidX.APPCOMPAT
+    api Libs.AndroidX.MATERIAL
+    api Libs.AndroidX.COMPOSE_MATERIAL
+    api Libs.AndroidX.COMPOSE_UI
+    api Libs.AndroidX.COMPOSE_UI_TOOLING
+    api Libs.AndroidX.COMPOSE_ACTIVITY
+
+    // Navigation
+    implementation Libs.Navigation.NAVIGATION_COMPOSE
+
+    // Image loading
+    api Libs.Images.GLIDE
+    kapt Libs.Images.GLIDE_COMPILER
+
+    // Dependency Injection
+    api Libs.DI.KOIN.KOIN
+    api Libs.DI.KOIN.KOIN_ANDROID
+    api Libs.DI.KOIN.KOIN_JETPACK_COMPOSE
+
+    // Lifecycle
+    api Libs.Lifecycle.VIEWMODEL
+    api Libs.Lifecycle.LIVEDATA
+    api Libs.Lifecycle.RUNTIME
+    api Libs.Lifecycle.RUNTIME_COMPOSE
+    api Libs.Lifecycle.SAVED_STATE
+    api Libs.Lifecycle.JAVA_8
+
+    // Animation
+    api Libs.Animations.SHIMMER
+}

@@ -1,0 +1,24 @@
+import com.example.buildSrc.*
+
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JAVA_VERSION
+    targetCompatibility = JAVA_VERSION
+}
+
+dependencies {
+    // Kotlin
+    api Libs.Kotlin.STD_LIB
+    api Libs.Kotlin.REFLECT
+    api Libs.Kotlin.Coroutines.CORE
+
+    // Logging
+    api Libs.Logging.TIMBER
+
+    // Serializer's Annotation dependency on Retrofit
+    api Libs.Network.Serializer.MOSHI_CONVERTER
+}

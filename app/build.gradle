@@ -1,0 +1,78 @@
+import com.example.buildSrc.*
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-parcelize"
+}
+
+android {
+    compileSdk Versions.COMPILE_SDK
+    buildToolsVersion Versions.BUILD_TOOLS
+
+    defaultConfig {
+        applicationId APPLICATION_ID
+        minSdk Versions.MIN_SDK
+        targetSdk Versions.TARGET_SDK
+        versionCode Versions.VERSION_CODE
+        versionName Versions.VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JAVA_VERSION
+        targetCompatibility JAVA_VERSION
+    }
+    kotlinOptions {
+        jvmTarget = JAVA_VERSION.toString()
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Versions.COMPOSE_VERSION
+        kotlinCompilerVersion Libs.Kotlin.VERSION
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation project(path: ':app:base:data:api')
+    implementation project(Modules.Base.DATA)
+    implementation project(Modules.Base.PRESENTATION)
+    implementation project(Modules.Features.Anime.PRESENTATION)
+
+    // Logging
+    debugImplementation Libs.Logging.CHUCKER_DEBUG
+    releaseImplementation Libs.Logging.CHUCKER_RELEASE
+
+    // Navigation
+    implementation Libs.Navigation.NAVIGATION_COMPOSE
+
+    implementation Libs.Network.Serializer.MOSHI
+    implementation Libs.Network.Serializer.MOSHI_CONVERTER
+    implementation Libs.Network.Serializer.MOSHI_KOTLIN
+    implementation Libs.Network.Serializer.MOSHI_ADAPTERS
+    implementation Libs.Network.Serializer.MOSHI_CODEGEN
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation Libs.AndroidX.COMPOSE_ANDROID_TEST
+    debugImplementation Libs.AndroidX.COMPOSE_DEBUG
+}

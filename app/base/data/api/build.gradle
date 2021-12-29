@@ -1,0 +1,19 @@
+import com.example.buildSrc.*
+
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JAVA_VERSION
+    targetCompatibility = JAVA_VERSION
+}
+
+dependencies {
+    implementation project(Modules.Base.ARCH)
+
+    // Network Connection
+    implementation Libs.Network.RETROFIT
+    implementation Libs.Network.LOGGING_INTERCEPTOR
+}

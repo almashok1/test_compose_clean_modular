@@ -1,0 +1,29 @@
+import com.example.buildSrc.*
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk Versions.COMPILE_SDK
+
+    defaultConfig {
+        minSdk Versions.MIN_SDK
+        targetSdk Versions.TARGET_SDK
+    }
+    compileOptions {
+        sourceCompatibility JAVA_VERSION
+        targetCompatibility JAVA_VERSION
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(path: ':app:base:arch')
+    implementation project(Modules.Base.ARCH)
+    api project(Modules.Base.DOMAIN)
+    implementation project(Modules.Libs.RETROFIT_API)
+}
