@@ -14,7 +14,7 @@ class RandomQuoteViewModel(
     private val _state = getState<AnimeQuote>()
     val state = _state.flow
 
-    private fun getRandomQuote() {
+    fun getRandomQuote() {
         viewModelScope.launch {
             _state.request { getRandomQuoteUseCase() }
         }

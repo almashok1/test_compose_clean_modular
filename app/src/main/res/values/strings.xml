@@ -3,5 +3,7 @@
     <string name="nav_quotes">Quotes</string>
     <string name="nav_random_quote">Random</string>
     <string name="nav_all_anime">All Anime</string>
+
+    <string name="get_another_quote">Get Another Quote</string>
     <string name="error_text">Error Happened, Enjoy xD</string>
 </resources>
