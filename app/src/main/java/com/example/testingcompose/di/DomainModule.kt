@@ -7,8 +7,8 @@ import org.koin.dsl.module
 
 val domainModule = module {
 
-    factory { GetAllAvailableAnimeUseCase(get()) }
-    factory { Get10RandomQuotesUseCase(get()) }
-    factory { GetRandomQuoteUseCase(get()) }
+    factory<GetAllAvailableAnimeUseCase> { GetAllAvailableAnimeUseCase.Base(get()) }
+    factory<Get10RandomQuotesUseCase> { Get10RandomQuotesUseCase.Base(get()) }
+    factory<GetRandomQuoteUseCase> { GetRandomQuoteUseCase.Base(get()) }
 
 }

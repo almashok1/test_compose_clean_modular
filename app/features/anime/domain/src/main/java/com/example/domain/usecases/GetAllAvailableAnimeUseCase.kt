@@ -1,11 +1,17 @@
 package com.example.domain.usecases
 
+import com.example.arch.models.Outcome
 import com.example.domain.repository.AnimeRepository
 
-class GetAllAvailableAnimeUseCase(
-    private val repo: AnimeRepository
-) {
+interface GetAllAvailableAnimeUseCase {
 
-    suspend operator fun invoke() = repo.getAllAvailableAnime()
+    suspend operator fun invoke(): Outcome<List<String>>
+
+    class Base(
+        private val repo: AnimeRepository
+    ) : GetAllAvailableAnimeUseCase {
+
+        override suspend operator fun invoke() = repo.getAllAvailableAnime()
+    }
 
 }

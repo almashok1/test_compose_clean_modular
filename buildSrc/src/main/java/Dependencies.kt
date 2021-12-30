@@ -78,7 +78,7 @@ object Libs {
 
     object Network {
         const val RETROFIT = "com.squareup.retrofit2:retrofit:2.9.0"
-        const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:4.9.0"
+        const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:4.9.3"
 
         object Serializer {
             const val MOSHI_CONVERTER = "com.squareup.retrofit2:converter-moshi:2.9.0"
@@ -91,8 +91,8 @@ object Libs {
 
     object Logging {
         const val TIMBER = "com.jakewharton.timber:timber:4.7.1"
-        const val CHUCKER_DEBUG = "com.github.chuckerteam.chucker:library:3.4.0"
-        const val CHUCKER_RELEASE = "com.github.chuckerteam.chucker:library-no-op:3.4.0"
+        const val CHUCKER_DEBUG = "com.github.chuckerteam.chucker:library:3.5.2"
+        const val CHUCKER_RELEASE = "com.github.chuckerteam.chucker:library-no-op:3.5.2"
     }
 
     object Navigation {
